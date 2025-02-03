@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>teleop</name>
+  <version>0.1.0</version>
+  <description>The teleop package for remote operation.</description>
+
+  <!-- Maintainer information -->
+  <maintainer email="mael.lefloch10@gmail.com">Mael Le Floch</maintainer>
+
+  <!-- License information -->
+  <license>MIT</license>
+
+  <!-- Dependencies -->
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>joy</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+
+  <build_export_depend>geometry_msgs</build_export_depend>
+  <build_export_depend>joy</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>sensor_msgs</build_export_depend>
+
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>joy</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+
+  <exec_depend>gmapping</exec_depend>
+
+  <!-- Export section for additional configuration or tools -->
+  <export>
+    <!-- Additional configuration can go here -->
+  </export>
+</package>

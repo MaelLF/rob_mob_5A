@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Argument for map -->
+    <arg name="map" default="buvette" />
+
+    <!-- Include Gazebo simulation -->
+    <include file="$(find minilab_simulation)/launch/minilab_gazebo.launch">
+        <arg name="map_name" value="$(arg map)" />
+    </include>
+
+    <!-- Include state publisher -->
+    <include file="$(find minilab_simulation)/launch/minilab_state_publisher.launch" />
+
+    <!-- Launch trajectory planner -->
+    <node pkg="trajectory" type="follow_traj.py" name="follow_traj" output="screen" />
+
+    <!-- Launch trajectory follower -->
+    <node pkg="trajectory" type="plan_traj.py" name="plan_traj" output="screen" />
+
+    <!-- Launch map server -->
+    <node pkg="map_server" type="map_server" name="map_server" args="/home/map.yaml" output="screen" />
+
+    <!-- Launch RViz with a specific configuration -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d /home/config.rviz" output="screen" />
+
+    <!-- Ajout d'un nœud AMCL -->
+    <node pkg="amcl" type="amcl" name="amcl" output="screen">
+        <!-- Fichier YAML contenant les paramètres de l'AMCL -->
+        <param name="use_map_topic" value="true" />
+        <param name="odom_model_type" value="diff" />
+        <param name="base_frame_id" value="base_link" />
+        <param name="odom_frame_id" value="odom" />
+        <param name="global_frame_id" value="map" />
+        <param name="scan_topic" value="/scan" />
+    </node>
+</launch>
