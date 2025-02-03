@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+
+    <!-- Launch trajectory planner -->
+    <node pkg="trajectory" type="follow_traj.py" name="follow_traj" output="screen" />
+
+    <!-- Launch trajectory follower -->
+    <node pkg="trajectory" type="plan_traj.py" name="plan_traj" output="screen" />
+
+
+    <!-- Launch RViz with a specific configuration -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d /home/config.rviz" output="screen" />
+    
+</launch>

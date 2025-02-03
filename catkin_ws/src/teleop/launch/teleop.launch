@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+
+    <!-- Launch trajectory planner -->
+    <node pkg="joy" type="joy_node" name="joy_node" output="screen" />
+
+    <!-- Launch trajectory follower -->
+    <node pkg="teleop" type="teleop.py" name="teleop" output="screen" />
+
+
+    <!-- Launch RViz with a specific configuration -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d /home/config.rviz" output="screen" />
+    
+</launch>

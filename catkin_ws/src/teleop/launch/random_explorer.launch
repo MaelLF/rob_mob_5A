@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+
+
+    <!-- Launch trajectory follower -->
+    <node pkg="teleop" type="random_explorer.py" name="random_explo" output="screen" />
+
+
+    <!-- Launch RViz with a specific configuration -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d /home/config.rviz" output="screen" />
+    
+</launch>
